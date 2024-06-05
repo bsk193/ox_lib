@@ -1,0 +1,17 @@
+.mainGradient {
+    background: rgb(50, 0, 60);
+    background: linear-gradient(90deg, rgba(50, 0, 60, 0.8) 0%, rgba(50, 0, 60, 0.45) 75%, rgba(50, 0, 60, 0) 100%);
+}
+
+.disabledGradient {
+    background: rgb(50,0,60);
+    background: linear-gradient(90deg, rgba(50,0,60,1) 0%, rgba(50,0,60,0.85) 75%, rgba(50,0,60,0.75) 85%, rgba(50,0,60,0.65) 90%, rgba(50,0,60,0.55) 95%, rgba(50,0,60,0) 100%);
+}
+
+.mainBackground {
+    background: rgba(50, 0, 60, 0.5);
+    background-color: rgba(50, 0, 60, 0.5);
+}
+.whiteLetters {
+    color: white
+}

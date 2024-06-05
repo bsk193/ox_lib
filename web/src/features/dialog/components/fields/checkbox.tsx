@@ -11,6 +11,7 @@ interface Props {
 const CheckboxField: React.FC<Props> = (props) => {
   return (
     <Checkbox
+      styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' } }}
       {...props.register}
       sx={{ display: 'flex' }}
       required={props.row.required}

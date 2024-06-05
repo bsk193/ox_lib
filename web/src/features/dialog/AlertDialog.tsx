@@ -41,6 +41,7 @@ const AlertDialog: React.FC = () => {
   return (
     <>
       <Modal
+        styles={{ modal: { backgroundColor: "rgba(50, 0, 60, 0.5)" }, title: { color: 'white' }}}
         opened={opened}
         centered={dialogData.centered}
         size={dialogData.size || 'md'}
@@ -68,13 +69,14 @@ const AlertDialog: React.FC = () => {
           </ReactMarkdown>
           <Group position="right" spacing={10}>
             {dialogData.cancel && (
-              <Button uppercase variant="default" onClick={() => closeAlert('cancel')} mr={3}>
+              <Button styles={{ inner: { color: 'white'}, root: { backgroundColor: "rgba(50, 0, 60, 0.5)" } }} uppercase variant="light" onClick={() => closeAlert('cancel')} mr={3}>
                 {dialogData.labels?.cancel || locale.ui.cancel}
               </Button>
             )}
             <Button
+              styles={{ inner: { color: 'white'}, root: { backgroundColor: "rgba(50, 0, 60, 0.5)" } }}
               uppercase
-              variant={dialogData.cancel ? 'light' : 'default'}
+              variant='light'
               color={dialogData.cancel ? theme.primaryColor : undefined}
               onClick={() => closeAlert('confirm')}
             >

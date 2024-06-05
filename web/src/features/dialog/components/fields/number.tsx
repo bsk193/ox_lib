@@ -3,6 +3,7 @@ import { INumber } from '../../../../typings/dialog';
 import { Control, useController } from 'react-hook-form';
 import { FormValues } from '../../InputDialog';
 import LibIcon from '../../../../components/LibIcon';
+import styles from './../../MainStyles.Module.css';
 
 interface Props {
   row: INumber;
@@ -20,6 +21,7 @@ const NumberField: React.FC<Props> = (props) => {
 
   return (
     <NumberInput
+      styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' }, control: { color: 'white'} }}
       value={controller.field.value}
       name={controller.field.name}
       ref={controller.field.ref}

@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import HeaderButton from './components/HeaderButton';
 import ScaleFade from '../../../transitions/ScaleFade';
 import MarkdownComponents from '../../../config/MarkdownComponents';
+import cascadestyles from './components/MainStyles.module.css';
 
 const openMenu = (id: string | undefined) => {
   fetchNui<ContextMenuProps>('openContext', { id: id, back: true });
@@ -16,8 +17,8 @@ const openMenu = (id: string | undefined) => {
 const useStyles = createStyles((theme) => ({
   container: {
     position: 'absolute',
-    top: '15%',
-    right: '25%',
+    top: '10%',
+    left: '0%',
     width: 320,
     height: 580,
   },
@@ -25,10 +26,10 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
-    gap: 6,
+    gap: 2,
   },
   titleContainer: {
-    borderRadius: 4,
+    borderRadius: 0,
     flex: '1 85%',
     backgroundColor: theme.colors.dark[6],
   },
@@ -42,7 +43,7 @@ const useStyles = createStyles((theme) => ({
     overflowY: 'scroll',
   },
   buttonsFlexWrapper: {
-    gap: 3,
+    gap: 1,
   },
 }));
 
@@ -91,7 +92,7 @@ const ContextMenu: React.FC = () => {
           {contextMenu.menu && (
             <HeaderButton icon="chevron-left" iconSize={16} handleClick={() => openMenu(contextMenu.menu)} />
           )}
-          <Box className={classes.titleContainer}>
+          <Box className={classes.titleContainer + " " + cascadestyles.mainGradient}>
             <Text className={classes.titleText}>
               <ReactMarkdown components={MarkdownComponents}>{contextMenu.title}</ReactMarkdown>
             </Text>

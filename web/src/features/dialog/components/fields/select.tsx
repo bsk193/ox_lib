@@ -21,6 +21,7 @@ const SelectField: React.FC<Props> = (props) => {
     <>
       {props.row.type === 'select' ? (
         <Select
+          styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' }, dropdown: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' }, item: { color: 'white' } }}
           data={props.row.options}
           value={controller.field.value}
           name={controller.field.name}
@@ -39,6 +40,7 @@ const SelectField: React.FC<Props> = (props) => {
         <>
           {props.row.type === 'multi-select' && (
             <MultiSelect
+              styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' } }}
               data={props.row.options}
               value={controller.field.value}
               name={controller.field.name}

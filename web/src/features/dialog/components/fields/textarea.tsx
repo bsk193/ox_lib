@@ -3,6 +3,7 @@ import { UseFormRegisterReturn } from 'react-hook-form';
 import { ITextarea } from '../../../../typings/dialog';
 import React from 'react';
 import LibIcon from '../../../../components/LibIcon';
+import styles from './../../MainStyles.Module.css';
 
 interface Props {
   register: UseFormRegisterReturn;
@@ -13,6 +14,7 @@ interface Props {
 const TextareaField: React.FC<Props> = (props) => {
   return (
     <Textarea
+      styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' } }}
       {...props.register}
       defaultValue={props.row.default}
       label={props.row.label}

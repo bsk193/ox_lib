@@ -8,38 +8,37 @@ import ScaleFade from '../../../transitions/ScaleFade';
 import type { RadialMenuItem } from '../../../typings';
 import { useLocales } from '../../../providers/LocaleProvider';
 import LibIcon from '../../../components/LibIcon';
+import cascadestyles from './../context/components/MainStyles.module.css';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'absolute',
-    top: '50%',
+    bottom: '-15%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
   sector: {
-    fill: theme.colors.dark[6],
-    color: theme.colors.dark[0],
+    color: 'white',
+    fill: 'rgba(50,0,60,.5)',
 
     '&:hover': {
-      fill: theme.fn.primaryColor(),
+      fill: 'rgba(50,0,60,.8)',
       '> g > text, > g > svg > path': {
         fill: '#fff',
       },
     },
     '> g > text': {
-      fill: theme.colors.dark[0],
+      fill: 'white',
     },
   },
   backgroundCircle: {
-    fill: theme.colors.dark[6],
+    fill: 'rgba(50,0,60,.5)',
   },
   centerCircle: {
-    fill: theme.fn.primaryColor(),
+    fill: 'rgba(50,0,60,0.1)',
     color: '#fff',
-    stroke: theme.colors.dark[6],
-    strokeWidth: 4,
     '&:hover': {
-      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 1],
+      fill: 'rgba(50,0,60,.5)',
     },
   },
   centerIconContainer: {
@@ -122,7 +121,7 @@ const RadialMenu: React.FC = () => {
           <svg width="350px" height="350px" transform="rotate(90)">
             {/*Fixed issues with background circle extending the circle when there's less than 3 items*/}
             <g transform="translate(175, 175)">
-              <circle r={175} className={classes.backgroundCircle} />
+              <circle r={175} className={cascadestyles.circleGradient} />
             </g>
             {menuItems.map((item, index) => {
               // Always draw full circle to avoid elipse circles with 2 or less items
@@ -142,7 +141,7 @@ const RadialMenu: React.FC = () => {
                 <>
                   <g
                     transform={`rotate(-${index * pieAngle} 175 175) translate(${sinAngle * gap}, ${cosAngle * gap})`}
-                    className={classes.sector}
+                    className={classes.sector + " " + cascadestyles.circleGradient}
                     onClick={async () => {
                       const clickIndex =
                         menu.page === 1 ? index : PAGE_ITEMS * (menu.page - 1) - (menu.page - 1) + index;

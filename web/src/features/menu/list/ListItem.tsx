@@ -5,6 +5,7 @@ import type { MenuItem } from '../../../typings';
 import { isIconUrl } from '../../../utils/isIconUrl';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import LibIcon from '../../../components/LibIcon';
+import cascadestyles from './../../menu/context/components/MainStyles.module.css';
 
 interface Props {
   item: MenuItem;
@@ -15,8 +16,7 @@ interface Props {
 
 const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   buttonContainer: {
-    backgroundColor: theme.colors.dark[6],
-    borderRadius: theme.radius.md,
+    borderRadius: 0,
     padding: 2,
     height: 60,
     scrollMargin: 8,
@@ -74,7 +74,7 @@ const ListItem = forwardRef<Array<HTMLDivElement | null>, Props>(({ item, index,
   return (
     <Box
       tabIndex={index}
-      className={classes.buttonContainer}
+      className={classes.buttonContainer + " " + cascadestyles.mainGradient + " " + cascadestyles.whiteLetters}
       key={`item-${index}`}
       ref={(element: HTMLDivElement) => {
         if (ref)

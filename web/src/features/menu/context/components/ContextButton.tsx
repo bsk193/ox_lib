@@ -6,6 +6,7 @@ import { isIconUrl } from '../../../../utils/isIconUrl';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import MarkdownComponents from '../../../../config/MarkdownComponents';
 import LibIcon from '../../../../components/LibIcon';
+import cascadestyles from './MainStyles.module.css';
 
 const openMenu = (id: string | undefined) => {
   fetchNui<ContextMenuProps>('openContext', { id: id, back: false });
@@ -25,15 +26,22 @@ const useStyles = createStyles((theme, params: { disabled?: boolean; readOnly?: 
     whiteSpace: 'pre-wrap',
   },
   button: {
+    borderRadius: 0,
     height: 'fit-content',
     width: '100%',
     padding: 10,
     '&:hover': {
-      backgroundColor: params.readOnly ? theme.colors.dark[6] : undefined,
+      backgroundColor: 'rgba(50,0,60,1)',
       cursor: params.readOnly ? 'unset' : 'pointer',
     },
     '&:active': {
       transform: params.readOnly ? 'unset' : undefined,
+    },
+    '&:disabled': {
+      backgroundColor: 'rgba(50,0,60, 1)'
+    },
+    '&[data-disabled]': {
+      backgroundColor: 'rgba(50,0,60, 1)'
     },
   },
   iconImage: {
@@ -92,7 +100,7 @@ const ContextButton: React.FC<{
       >
         <HoverCard.Target>
           <Button
-            classNames={{ inner: classes.inner, label: classes.label, root: classes.button }}
+            classNames={{ inner: classes.inner, label: classes.label, root: classes.button + " " + cascadestyles.mainGradient}}
             onClick={() =>
               !button.disabled && !button.readOnly
                 ? button.menu
@@ -100,7 +108,7 @@ const ContextButton: React.FC<{
                   : clickContext(buttonKey)
                 : null
             }
-            variant="default"
+            variant="light"
             disabled={button.disabled}
           >
             <Group position="apart" w="100%" noWrap>
@@ -144,7 +152,7 @@ const ContextButton: React.FC<{
             </Group>
           </Button>
         </HoverCard.Target>
-        <HoverCard.Dropdown className={classes.dropdown}>
+        <HoverCard.Dropdown className={classes.dropdown  + " " + cascadestyles.mainBackground}>
           {button.image && <Image src={button.image} />}
           {Array.isArray(button.metadata) ? (
             button.metadata.map(

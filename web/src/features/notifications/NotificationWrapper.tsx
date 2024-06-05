@@ -12,10 +12,9 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: 300,
     height: 'fit-content',
-    backgroundColor: theme.colors.dark[6],
-    color: theme.colors.dark[0],
+    color: 'white',
     padding: 12,
-    borderRadius: theme.radius.sm,
+    borderRadius: 0,
     fontFamily: 'Roboto',
     boxShadow: theme.shadows.sm,
   },
@@ -25,13 +24,13 @@ const useStyles = createStyles((theme) => ({
   },
   description: {
     fontSize: 12,
-    color: theme.colors.dark[2],
+    color: 'white',
     fontFamily: 'Roboto',
     lineHeight: 'normal',
   },
   descriptionOnly: {
     fontSize: 14,
-    color: theme.colors.dark[2],
+    color: 'white',
     fontFamily: 'Roboto',
     lineHeight: 'normal',
   },

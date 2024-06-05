@@ -20,6 +20,7 @@ const ColorField: React.FC<Props> = (props) => {
 
   return (
     <ColorInput
+      styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' } }}
       withEyeDropper={false}
       value={controller.field.value}
       name={controller.field.name}

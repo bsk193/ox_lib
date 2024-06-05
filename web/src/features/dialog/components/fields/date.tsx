@@ -21,6 +21,7 @@ const DateField: React.FC<Props> = (props) => {
     <>
       {props.row.type === 'date' && (
         <DatePicker
+          styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' } }}
           value={controller.field.value ? new Date(controller.field.value) : controller.field.value}
           name={controller.field.name}
           ref={controller.field.ref}

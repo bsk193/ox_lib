@@ -16,6 +16,7 @@ import DateField from './components/fields/date';
 import TextareaField from './components/fields/textarea';
 import TimeField from './components/fields/time';
 import dayjs from 'dayjs';
+import styles from './../../MainStyles.Module.css';
 
 export type FormValues = {
   test: {
@@ -104,7 +105,7 @@ const InputDialog: React.FC = () => {
         closeOnEscape={fields.options?.allowCancel !== false}
         closeOnClickOutside={false}
         size="xs"
-        styles={{ title: { textAlign: 'center', width: '100%', fontSize: 18 } }}
+        styles={{ title: { textAlign: 'center', width: '100%', fontSize: 18, color: 'white'}, modal: { backgroundColor: 'rgba(50,0,60, 0.5)', color: 'white'}, body: { color: 'white'}, inner: { color: 'white'} }}
         title={fields.heading}
         withCloseButton={false}
         overlayOpacity={0.5}
@@ -153,15 +154,16 @@ const InputDialog: React.FC = () => {
             })}
             <Group position="right" spacing={10}>
               <Button
+                styles={{ inner: { color: 'white'}, root: { backgroundColor: "rgba(50, 0, 60, 0.5)" } }}
                 uppercase
-                variant="default"
+                variant="light"
                 onClick={() => handleClose()}
                 mr={3}
                 disabled={fields.options?.allowCancel === false}
               >
                 {locale.ui.cancel}
               </Button>
-              <Button uppercase variant="light" type="submit">
+              <Button styles={{ inner: { color: 'white'}, root: { backgroundColor: "rgba(50, 0, 60, 0.5)" } }} uppercase variant="light" type="submit">
                 {locale.ui.confirm}
               </Button>
             </Group>

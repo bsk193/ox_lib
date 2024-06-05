@@ -5,12 +5,14 @@ export const debugCustomNotification = () => {
   debugData<NotificationProps>([
     {
       action: 'notify',
+      
       data: {
         title: 'Success',
         description: 'Notification description',
         type: 'success',
         id: 'pogchamp',
         duration: 20000,
+        position: 'bottom-right',
         style: {
           '.description': {
             color: 'red',

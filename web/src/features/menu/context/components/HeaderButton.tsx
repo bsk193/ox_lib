@@ -1,6 +1,7 @@
 import { Button, createStyles } from '@mantine/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import LibIcon from '../../../../components/LibIcon';
+import cascadestyles from './MainStyles.module.css';
 
 interface Props {
   icon: IconProp;
@@ -11,13 +12,17 @@ interface Props {
 
 const useStyles = createStyles((theme, params: { canClose?: boolean }) => ({
   button: {
-    borderRadius: 4,
+    borderRadius: 0,
     flex: '1 15%',
     alignSelf: 'stretch',
     height: 'auto',
     textAlign: 'center',
     justifyContent: 'center',
     padding: 2,
+    '&:hover': {
+      backgroundColor: 'rgba(50,0,60,1)',
+      cursor: 'pointer',
+    },
   },
   root: {
     border: 'none',
@@ -33,7 +38,7 @@ const HeaderButton: React.FC<Props> = ({ icon, canClose, iconSize, handleClick }
   return (
     <Button
       variant="default"
-      className={classes.button}
+      className={classes.button + " " + cascadestyles.mainBackground}
       classNames={{ label: classes.label, root: classes.root }}
       disabled={canClose === false}
       onClick={handleClick}

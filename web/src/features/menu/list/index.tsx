@@ -7,25 +7,21 @@ import FocusTrap from 'focus-trap-react';
 import { fetchNui } from '../../../utils/fetchNui';
 import type { MenuPosition, MenuSettings } from '../../../typings';
 import LibIcon from '../../../components/LibIcon';
+import cascadestyles from './../../menu/context/components/MainStyles.module.css';
 
 const useStyles = createStyles((theme, params: { position?: MenuPosition; itemCount: number; selected: number }) => ({
   tooltip: {
-    backgroundColor: theme.colors.dark[6],
     color: theme.colors.dark[2],
-    borderRadius: theme.radius.sm,
+    borderRadius: 0,
     maxWidth: 350,
     whiteSpace: 'normal',
   },
   container: {
+    borderRadius: 0,
     position: 'absolute',
     pointerEvents: 'none',
-    marginTop: params.position === 'top-left' || params.position === 'top-right' ? 5 : 0,
-    marginLeft: params.position === 'top-left' || params.position === 'bottom-left' ? 5 : 0,
-    marginRight: params.position === 'top-right' || params.position === 'bottom-right' ? 5 : 0,
-    marginBottom: params.position === 'bottom-left' || params.position === 'bottom-right' ? 5 : 0,
-    right: params.position === 'top-right' || params.position === 'bottom-right' ? 1 : undefined,
-    left: params.position === 'bottom-left' ? 1 : undefined,
-    bottom: params.position === 'bottom-left' || params.position === 'bottom-right' ? 1 : undefined,
+    left: '0%',
+    top: '15%',
     fontFamily: 'Roboto',
     width: 384,
   },
@@ -33,16 +29,14 @@ const useStyles = createStyles((theme, params: { position?: MenuPosition; itemCo
     height: 'fit-content',
     maxHeight: 415,
     overflow: 'hidden',
-    borderRadius: params.itemCount <= 6 || params.selected === params.itemCount - 1 ? theme.radius.md : undefined,
-    backgroundColor: theme.colors.dark[8],
+    borderRadius: 0,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
   },
   scrollArrow: {
     backgroundColor: theme.colors.dark[8],
     textAlign: 'center',
-    borderBottomLeftRadius: theme.radius.md,
-    borderBottomRightRadius: theme.radius.md,
+    borderRadius: 0,
     height: 25,
   },
   scrollArrowIcon: {
@@ -217,7 +211,7 @@ const ListMenu: React.FC = () => {
         >
           <Box className={classes.container}>
             <Header title={menu.title} />
-            <Box className={classes.buttonsWrapper} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => moveMenu(e)}>
+            <Box className={classes.buttonsWrapper + " " + cascadestyles.mainGradient} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => moveMenu(e)}>
               <FocusTrap active={visible}>
                 <Stack spacing={8} p={8} sx={{ overflowY: 'scroll' }}>
                   {menu.items.map((item, index) => (
@@ -237,7 +231,7 @@ const ListMenu: React.FC = () => {
               </FocusTrap>
             </Box>
             {menu.items.length > 6 && selected !== menu.items.length - 1 && (
-              <Box className={classes.scrollArrow}>
+              <Box className={classes.scrollArrow   + " " + cascadestyles.mainGradient + " " + cascadestyles.whiteLetters}>
                 <LibIcon icon="chevron-down" className={classes.scrollArrowIcon} />
               </Box>
             )}

@@ -23,6 +23,7 @@ const InputField: React.FC<Props> = (props) => {
     <>
       {!props.row.password ? (
         <TextInput
+          styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)" }}}
           {...props.register}
           defaultValue={props.row.default}
           label={props.row.label}
@@ -36,6 +37,7 @@ const InputField: React.FC<Props> = (props) => {
         />
       ) : (
         <PasswordInput
+          styles={{ label: { color: 'white'}, input: { backgroundColor: "rgba(50, 0, 60, 0.5)", color: 'white' } }}
           {...props.register}
           defaultValue={props.row.default}
           label={props.row.label}
